@@ -78,20 +78,49 @@
 
 											<div class="col-md-12">
 												<div class="form-group">
-													 <select name="etat" id="etat">
-                											<option value="">Status</option>
-                											<option value="p1316">Ready to start @PC</option>
-															<option value="Archi_INP">PoRo bouilding PC->CF</option>
-															<option value="Archi_LAT">Expert nomination</option>
-															<option value="Archi_LAT">PoRo Signature @Cf</option>
-															<option value="Archi_LAT">Poro Achievement >CF</option>
-															<option value="Archi_LAT">Suppluiers Nom</option>
-															<option value="Archi_LAT"></option>
-															<option value="Archi_LAT"></option>
+													 <select name="jalon" id="jalon" onchange="yesnoCheck(this);">
+                											<option value="">Jalon</option>
+                											<option value="pc">Ready to start @PC</option>
+															<option value="pccf">PoRo bouilding PC->CF</option>
+															<option value="Expert_nomination">Expert nomination</option>
+															<option value="cf">PoRo Signature @Cf</option>
+															<option value="cfp">Poro Achievement >CF</option>
+															<option value="Suppluiers_nomination">Suppluiers Nomination</option>
 
 
-            						</select>
 
+            											</select>
+
+												</div>
+											</div>
+                                             <div class="col-md-6">
+												<div class="form-group">
+													<select name="etat" id="etat" >
+                                                            <option value="">Status</option>
+  															<option style="background-color: #f13b13;" > Data missing</option>
+															<option style="background-color: #f1f113;">Data in progress</option>
+  															<option style="background-color: #8bf446;">OK / Done / Conform</option>
+														    <option style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(10,10,10,0.9612045501794468) 35%, rgba(0,212,255,1) 100%);">COCA, morphing, or out of BOM</option>
+														    <option style="background-color: #80847d;">Not concerned</option>
+													</select>
+												</div>
+											</div>
+											<script>
+												function yesnoCheck(that) {
+                                                     if (that.value == "cf") {
+                                                        //alert("check");
+                                                         document.getElementById("ifYes").style.display = "block";
+                                                     } else {
+                                                         document.getElementById("ifYes").style.display = "none";
+                                                           }
+                                                            }
+
+											</script>
+
+
+											<div class="col-md-12">
+												<div class="form-group" id="ifYes" style="display: none;">
+													<input type="date" id="dateCF" name="dateCF" value="{{ dernier }}" min="{{ premier }}" max="{{ dernier }}">
 
 												</div>
 											</div>

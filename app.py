@@ -23,11 +23,11 @@ def contact():
 
 
 @app.route('/projets')
-def contact():
+def projets():
     return render_template('projets.html')
 
 
 @app.route('/visualisation')
-def contact():
+def visualisation():
     return render_template('visualisation.html')
 
