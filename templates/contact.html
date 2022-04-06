@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Contact Form 01</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="../static/css/style2.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">PoRo</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-10 col-md-12">
+					<div class="wrapper">
+						<div class="row no-gutters">
+							<div class="col-md-7 d-flex align-items-stretch">
+								<div class="contact-wrap w-100 p-md-5 p-4">
+
+
+
+
+
+
+									<div id="form-message-warning" class="mb-4"></div> 
+				      		<div id="form-message-success" class="mb-4">
+				            Your message was sent, thank you!
+				      		</div>
+									<form method="POST" id="contactForm" name="contactForm">
+										<div class="row">
+
+											<div class="col-md-6">
+												<div class="form-group">
+													<select name="projet" id="projet">
+                										<option value="">Votre projet</option>
+														<option value="p1316">B1316</option>
+														<option value="Archi_INP">HHN</option>
+														<option value="Archi_LAT">XDD</option>
+
+
+            										</select>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<select name="colonne" id="colonne">
+                											<option value="">Fonctions/Assemblé </option>
+                											<option value="Archi_PDC">Planche de bord</option>
+															<option value="Archi_PDC">Console </option>
+															<option value="Archi_PDC">Panneau porte AV </option>
+															<option value="Archi_PDC"> Panneau porte AR</option>
+															<option value="Archi_PDC">Projecteur </option>
+															<option value="Archi_PDC"> Feu</option>
+															<option value="Archi_PDC"> DRL</option>
+															<option value="Archi_PDC">Sièges </option>
+															<option value="Archi_PDC"> Bouclier AV</option>
+															<option value="Archi_PDC">Bouclier AR </option>
+															<option value="Archi_PDC">Miroirs extérieurs </option>
+															<option value="Archi_PDC">Barres de toit </option>
+															<option value="Archi_PDC"> Volants</option>
+															<option value="Archi_PDC">Cluster </option>
+															<option value="Archi_PDC">Ecran </option>
+															<option value="Archi_PDC">barette (switches) </option>
+                                        					<option value="Archi_PDC">Habillage de coffre</option>
+            									</select>
+												</div>
+											</div>
+
+											<div class="col-md-12">
+												<div class="form-group">
+													 <select name="etat" id="etat">
+                											<option value="">Status</option>
+                											<option value="p1316">Ready to start @PC</option>
+															<option value="Archi_INP">PoRo bouilding PC->CF</option>
+															<option value="Archi_LAT">Expert nomination</option>
+															<option value="Archi_LAT">PoRo Signature @Cf</option>
+															<option value="Archi_LAT">Poro Achievement >CF</option>
+															<option value="Archi_LAT">Suppluiers Nom</option>
+															<option value="Archi_LAT"></option>
+															<option value="Archi_LAT"></option>
+
+
+            						</select>
+
+
+												</div>
+											</div>
+
+											<div class="col-md-12">
+												<div class="form-group">
+													<textarea name="message" class="form-control" id="message" cols="20" rows="7" placeholder="Remarques"></textarea>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="submit" value="Mettre a jour le PoRo" class="btn btn-primary">
+													<div class="submitting"></div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<script>
+	var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+
+</script>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>
+

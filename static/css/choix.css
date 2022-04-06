@@ -1,0 +1,73 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("../images/wall.jpg");
+
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+a.button5{
+display:inline-block;
+padding:0.46em 1.6em;
+border:0.1em solid #000000;
+margin:0 0.2em 0.2em 0;
+border-radius:0.12em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#000000;
+text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+background-color:#FFFFFF;
+text-align:center;
+transition: all 0.15s;
+}
+a.button5:hover{
+text-shadow: 0 0 2em rgba(255,255,255,1);
+color:#FFFFFF;
+border-color:#FFFFFF;
+}
+@media all and (max-width:30em){
+a.button5{
+display:block;
+margin:0.4em auto;
+}
+}
