@@ -3,7 +3,12 @@ from google.cloud import bigquery
 import requests
 import configparser
 import os
+from pipline.PoRo import PoRo
 
+
+
+liste_projet=["","","","","","",""]
+piece=["Planche de bord","Console","Panneau porte AV","Panneau porte AR","Projecteur","DRL","Feu","Sièges","Bouclier AV","","","","",""]
 
 def check_proxy():
     try:
@@ -15,9 +20,6 @@ def check_proxy():
         config.read("./config.ini")
         os.environ['https_proxy'] = "http://" + config['SERVER']['proxyUser'] + config['SERVER']['proxypsw'] + config['SERVER']['proxypsw'] + config['SERVER']['proxy']
         print("Proxy:",os.environ['https_proxy'])
-
-
-
 
 
 #Create table from bucket file to big query
@@ -54,7 +56,7 @@ def insert_into_big_query(PoRo):
         print("Encountered errors while inserting rows: {}".format(errors))
 
 
-#Creation de nouveau projet
+#Creation de la table sur GCP a executer une seul fois lors du lancement du projet
 def create_table_big_query():
     # Construct a BigQuery client object.
     client = bigquery.Client()
@@ -83,4 +85,11 @@ def create_table_big_query():
     )
 
 
-
+def creation_projet():
+    p1 = PoRo(projet="R1316", piece="Console", Ready_to_start_PC=3, PoRo_building_PC_CF=3, Expert_nomination=None,
+              PoRo_Signature_Cf=2,
+              week_attribution_CF=None, Poro_Achievement_CF_p=3, Suppluiers_Nomination=3,
+              Description="' - Sgnature en cours (reste APO), "
+                          "ajout d'éléments thème design / produit depuis CF (stargate, coiffe, cast forming), donc update. Chiffres différents "
+                          "portratit robot VS KPM, mais budget en écart à ré-évaluer au CC (idem P1310)")
+    insert_into_big_query(p1)
