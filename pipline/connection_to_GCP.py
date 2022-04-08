@@ -24,7 +24,7 @@ def check_proxy():
         os.environ['https_proxy'] = "http://" + config['SERVER']['proxyUser'] + config['SERVER']['proxypsw'] + config['SERVER']['proxypsw'] + config['SERVER']['proxy']
         print("Proxy:",os.environ['https_proxy'])
 
-
+check_proxy()
 #Create table from bucket file to big query
 def get_data_from_big_query_connection(table):
     # Construct a BigQuery client object.
@@ -58,6 +58,28 @@ def insert_into_big_query(PoRo):
         print("New rows have been added.")
     else:
         print("Encountered errors while inserting rows: {}".format(errors))
+
+
+
+#modification d'une ligne de PoRo
+def modif_into_big_query(projet,piece,jalon,status,remarque,datemiseajours):
+
+    client = bigquery.Client()
+    table_id = "projet-sanae.PoRo.poroallprojetcts"
+
+    query = "UPDATE  "+ table_id +  \
+            "   SET "+ jalon +" = "+str(status) +\
+            " WHERE projet=@projet AND piece=@piece "
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ScalarQueryParameter("projet", "STRING", projet),
+            bigquery.ScalarQueryParameter("piece", "STRING", piece),
+        ]
+    )
+    query_job = client.query(query, job_config=job_config)
+    query_job.result()
+
+    print("row modified")
 
 
 #Creation de la table sur GCP a executer une seul fois lors du lancement du projet

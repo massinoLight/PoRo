@@ -2,11 +2,13 @@
 
 from pipline.PoRo import PoRo
 from pipline.connection_to_GCP import *
-import datetime
 
 
-#create_table_big_query()
 
 
-creation_projet_en_cours()
 
+
+
+modif_into_big_query(projet="R1310",piece="Bouclier AV",
+                     jalon="Ready_to_start_PC",status=3,
+                     remarque="Volants",datemiseajours=datetime.datetime.now().date())

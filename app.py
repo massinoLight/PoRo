@@ -14,9 +14,9 @@ def index():
 
 
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
+@app.route('/modification')
+def modification():
+    return render_template('modification.html')
 
 
 @app.route('/projets')
