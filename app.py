@@ -14,8 +14,17 @@ def index():
 
 
 
-@app.route('/modification')
+@app.route('/modification', methods=['GET', 'POST'])
 def modification():
+    if request.method == 'POST':
+        req = request.form
+        print(req.get("projet"))
+        print(req.get("Piece"))
+        print(req.get("projet"))
+        print(req.get("projet"))
+
+
+
     return render_template('modification.html')
 
 

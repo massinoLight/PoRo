@@ -62,13 +62,13 @@ def insert_into_big_query(PoRo):
 
 
 #modification d'une ligne de PoRo
-def modif_into_big_query(projet,piece,jalon,status,remarque,datemiseajours):
+def modif_into_big_query(projet,piece,jalon,status,remarque):
 
     client = bigquery.Client()
     table_id = "projet-sanae.PoRo.poroallprojetcts"
 
     query = "UPDATE  "+ table_id +  \
-            "   SET "+ jalon +" = "+str(status) +\
+            "   SET "+ jalon +" = "+str(status) +", date_mise_a_jour = CURRENT_DATE() , Description ="+remarque+\
             " WHERE projet=@projet AND piece=@piece "
     job_config = bigquery.QueryJobConfig(
         query_parameters=[

@@ -34,18 +34,24 @@
 
 									<div id="form-message-warning" class="mb-4"></div> 
 				      		<div id="form-message-success" class="mb-4">
-				            Your message was sent, thank you!
+				            modif prise en compte, thank you!
 				      		</div>
-									<form method="POST" id="contactForm" name="contactForm">
+									<form action="/modification" method="POST">
 										<div class="row">
 
 											<div class="col-md-6">
 												<div class="form-group">
 													<select name="projet" id="projet">
                 										<option value="">projet</option>
-														<option value="p1316">B1316</option>
-														<option value="Archi_INP">HHN</option>
-														<option value="Archi_LAT">XDD</option>
+														<option value="P1316">P1316</option>
+														<option value="HCB">HCB</option>
+														<option value="DHN">DHN</option>
+														<option value="P1310">P1310</option>
+														<option value="DJB">DJB</option>
+														<option value="HJB2">HJB2</option>
+														<option value="P1317">P1317</option>
+														<option value="R1310">R1310</option>
+														<option value="R1312">R1312</option>
 
 
             										</select>
@@ -55,23 +61,23 @@
 												<div class="form-group">
 													<select name="Piece" id="Piece">
                 											<option value="">Pièce </option>
-                											<option value="Archi_PDC">Planche de bord</option>
-															<option value="Archi_PDC">Console </option>
-															<option value="Archi_PDC">Panneau porte AV </option>
-															<option value="Archi_PDC"> Panneau porte AR</option>
-															<option value="Archi_PDC">Projecteur </option>
-															<option value="Archi_PDC"> Feu</option>
-															<option value="Archi_PDC"> DRL</option>
-															<option value="Archi_PDC">Sièges </option>
-															<option value="Archi_PDC"> Bouclier AV</option>
-															<option value="Archi_PDC">Bouclier AR </option>
-															<option value="Archi_PDC">Miroirs extérieurs </option>
-															<option value="Archi_PDC">Barres de toit </option>
-															<option value="Archi_PDC"> Volants</option>
-															<option value="Archi_PDC">Cluster </option>
-															<option value="Archi_PDC">Ecran </option>
-															<option value="Archi_PDC">barette (switches) </option>
-                                        					<option value="Archi_PDC">Habillage de coffre</option>
+                											<option value="Planche de bord">Planche de bord</option>
+															<option value="Console">Console </option>
+															<option value="Panneau porte AV">Panneau porte AV </option>
+															<option value="Panneau porte AR">Panneau porte AR</option>
+															<option value="Projecteur">Projecteur </option>
+															<option value="Feu"> Feu</option>
+															<option value="DRL"> DRL</option>
+															<option value="Sièges">Sièges </option>
+															<option value="Bouclier AV"> Bouclier AV</option>
+															<option value="Bouclier AR">Bouclier AR </option>
+															<option value="Miroirs extérieurs">Miroirs extérieurs </option>
+															<option value="Barres de toit">Barres de toit </option>
+															<option value="Volants"> Volants</option>
+															<option value="Cluster">Cluster </option>
+															<option value="Ecran">Ecran </option>
+															<option value="barette (switches)">barette (switches) </option>
+                                        					<option value="Habillage de coffre">Habillage de coffre</option>
             									</select>
 												</div>
 											</div>
@@ -80,8 +86,8 @@
 												<div class="form-group">
 													 <select name="jalon" id="jalon" onchange="yesnoCheck(this);">
                 											<option value=""></option>
-                											<option value="pc">Ready to start @PC</option>
-															<option value="pccf">PoRo building PC->CF</option>
+                											<option value="Ready_to_start_PC">Ready to start @PC</option>
+															<option value="PoRo_bouilding_PC_CF">PoRo building PC->CF</option>
 															<option value="Expert_nomination">Expert nomination</option>
 															<option value="cf">PoRo Signature @Cf</option>
 															<option value="cfp">Poro Achievement >CF</option>
