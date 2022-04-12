@@ -10,10 +10,19 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="../static/css/style2.css">
+	<link rel="stylesheet" href="../static/css/choix.css">
 
 	</head>
 	<body>
+	  {% if bien %}
+        <script>
+  alert("{{ bien }}");
+
+</script>
+    {% endif %}
+
 	<section class="ftco-section">
+
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
@@ -32,10 +41,7 @@
 
 
 
-									<div id="form-message-warning" class="mb-4"></div> 
-				      		<div id="form-message-success" class="mb-4">
-				            modif prise en compte, thank you!
-				      		</div>
+
 									<form action="/modification" method="POST">
 										<div class="row">
 
@@ -89,12 +95,9 @@
                 											<option value="Ready_to_start_PC">Ready to start @PC</option>
 															<option value="PoRo_bouilding_PC_CF">PoRo building PC->CF</option>
 															<option value="Expert_nomination">Expert nomination</option>
-															<option value="cf">PoRo Signature @Cf</option>
-															<option value="cfp">Poro Achievement >CF</option>
-															<option value="Suppluiers_nomination">Suppliers Nomination</option>
-
-
-
+															<option value="PoRo_Signature_Cf">PoRo Signature @Cf</option>
+															<option value="Poro_Achievement_CF_p">Poro Achievement >CF</option>
+															<option value="Suppluiers_Nomination">Suppliers Nomination</option>
             											</select>
 
 												</div>
@@ -103,11 +106,11 @@
 												<div class="form-group">
 													<select name="etat" id="etat" >
                                                             <option value="">Status</option>
-  															<option style="background-color: #f13b13;" > Data missing</option>
-															<option style="background-color: #f1f113;">Data in progress</option>
-  															<option style="background-color: #8bf446;">OK / Done / Conform</option>
-														    <option style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(10,10,10,0.9612045501794468) 35%, rgba(0,212,255,1) 100%);">COCA, morphing, or out of BOM</option>
-														    <option style="background-color: #80847d;">Not concerned</option>
+  															<option value="1" style="background-color: #f13b13;" > Data missing</option>
+															<option value="2" style="background-color: #f1f113;">Data in progress</option>
+  															<option value="3" style="background-color: #8bf446;">OK / Done / Conform</option>
+														    <option value="4" style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(10,10,10,0.9612045501794468) 35%, rgba(0,212,255,1) 100%);">COCA, morphing, or out of BOM</option>
+														    <option value="5" style="background-color: #80847d;">Not concerned</option>
 													</select>
 												</div>
 											</div>
@@ -133,7 +136,7 @@
 
 											<div class="col-md-12">
 												<div class="form-group">
-													<textarea name="message" class="form-control" id="message" cols="20" rows="7" placeholder="Remarques"></textarea>
+													<textarea name="remarque" class="form-control" id="remarque" cols="20" rows="7" placeholder="Remarques"></textarea>
 												</div>
 											</div>
 											<div class="col-md-12">
@@ -151,7 +154,9 @@
 				</div>
 			</div>
 		</div>
+
 	</section>
+
 <script>
 	var expanded = false;
 

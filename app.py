@@ -1,15 +1,15 @@
 from datetime import datetime
 import datetime as d
 import time
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 
-
+from pipline.connection_to_GCP import modif_into_big_query, get_into_big_query
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('choix.html')
+    return render_template('main.html')
 
 
 
@@ -18,22 +18,67 @@ def index():
 def modification():
     if request.method == 'POST':
         req = request.form
-        print(req.get("projet"))
-        print(req.get("Piece"))
-        print(req.get("projet"))
-        print(req.get("projet"))
+        if req.get("projet")!="" and req.get("Piece")!='':
+            modif_into_big_query(projet=req.get("projet"), piece=req.get("Piece"), jalon=req.get("jalon"), status=req.get("etat"), remarque=req.get("remarque"))
+            bien='done'
+            print(req.get("projet"))
+            dataframe = get_into_big_query(req.get("projet"))
+            dataframe = dataframe[
+                ['Ready_to_start_PC', 'PoRo_bouilding_PC_CF', 'Expert_nomination', 'PoRo_Signature_Cf',
+                 'Poro_Achievement_CF_p', 'Suppluiers_Nomination']]
+            print(dataframe.values)
+            couleurs = []
+            for i in range(0, len(dataframe)):
+                for j in range(0, len(dataframe.values[i])):
+                    if dataframe.values[i][j] == 1:
+                        couleurs.append("#e32014")  # red data missing
+                    else:
+                        if dataframe.values[i][j] == 2:
+                            couleurs.append("#FFC300")  # yelow data in progress
+                        else:
+                            if dataframe.values[i][j] == 3:
+                                couleurs.append("#7ce314")  # green ok/done/conform
+                            else:
+                                if dataframe.values[i][j] == 4:
+                                    couleurs.append("#141514")  # black COCA ,morphing
+                                else:
+                                    if dataframe.values[i][j] == 5:
+                                        couleurs.append("#949794")  # grey not concerned
+
+            return render_template('visualisation.html', Projet=req.get("projet"), couleurs=couleurs)
+        else :
+            bien='saisie manquante'
+            return render_template('modification.html', bien=bien)
 
 
 
     return render_template('modification.html')
 
 
-@app.route('/projets')
-def projets():
-    return render_template('projets.html')
 
+@app.route('/visualisation/<string:projet>',methods=['GET'])
+def visualisation(projet):
+    print(projet)
+    dataframe=get_into_big_query(projet)
+    dataframe = dataframe[['Ready_to_start_PC', 'PoRo_bouilding_PC_CF','Expert_nomination','PoRo_Signature_Cf','Poro_Achievement_CF_p','Suppluiers_Nomination']]
+    print(dataframe.values)
+    couleurs = []
+    for i in range(0, len(dataframe)):
+        for j in range(0, len(dataframe.values[i])):
+            if dataframe.values[i][j] == 1:
+                couleurs.append("#e32014")  # red data missing
+            else:
+                if dataframe.values[i][j] == 2:
+                    couleurs.append("#FFC300")  # yelow data in progress
+                else:
+                    if dataframe.values[i][j] == 3:
+                        couleurs.append("#7ce314")  # green ok/done/conform
+                    else:
+                        if dataframe.values[i][j] == 4:
+                            couleurs.append("#141514")  # black COCA ,morphing
+                        else:
+                            if dataframe.values[i][j] == 5:
+                                couleurs.append("#949794")  # grey not concerned
 
-@app.route('/visualisation')
-def visualisation():
-    return render_template('visualisation.html')
+    return render_template('visualisation.html',Projet=projet,couleurs=couleurs)
 

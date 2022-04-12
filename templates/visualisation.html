@@ -2,9 +2,166 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>vis</title>
+    <title>{{Projet}}</title>
 </head>
 <body>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<center>
+    <h4>{{Projet}}</h4>
+</center>
+<center>
+
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky"></th>
+    <th class="tg-0pky">  Ready <br>&nbsp;&nbsp;&nbsp;to start     </th>
+    <th class="tg-0pky">  PoRo<br>&nbsp;&nbsp;Building   </th>
+    <th class="tg-0lax"><span style="font-style:italic">Expert</span><br>Nomination</th>
+    <th class="tg-0pky">&nbsp;&nbsp;&nbsp;PoRo<br>Signature</th>
+    <th class="tg-0pky">&nbsp;&nbsp;&nbsp;PoRo<br>Achievement</th>
+    <th class="tg-0pky">Supplier <br>nomination</th>
+    <th class="tg-0pky">REMARQUES</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:bold"><a href="{{ url_for('modification') }}"> Planche de bord</a></span></td>
+    {% for i in range(0,6) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Console</a></span></td>
+    {% for i in range(6,6*2) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Panneau porte AV</a></span></td>
+   {% for i in range(6*2,6*3) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Panneau porte AR</a></span></td>
+    {% for i in range(6*3,6*4) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Projecteur</a></span></td>
+    {% for i in range(6*4,6*5) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">DRL</a></span></td>
+    {% for i in range(6*5,6*6) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Feu</a></span></td>
+    {% for i in range(6*6,6*7) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Sièges</a></span></td>
+    {% for i in range(6*7,6*8) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Bouclier AV</a></span></td>
+    {% for i in range(6*8,6*9) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Bouclier AR</a></span></td>
+    {% for i in range(6*9,6*10) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Miroirs extérieurs</a></span></td>
+    {% for i in range(6*10,6*11) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Barres de toit</a></span></td>
+    {% for i in range(6*11,6*12) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Volants</a></span></td>
+    {% for i in range(6*12,6*13) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Cluster</a></span></td>
+   {% for i in range(6*13,6*14) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0pky"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Ecran</a></span></td>
+    {% for i in range(6*14,6*15) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Barettes</a></span></td>
+    {% for i in range(6*15,6*16) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}">  </a></td>
+      {% endfor %}
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:bold"><a href="{{ url_for('modification') }}">Habillage de coffre</a></span></td>
+    {% for i in range(6*16,6*17) %}
+    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"><a href="{{ url_for('modification') }}"></a></td>
+      {% endfor %}
+    <td class="tg-0lax"></td>
+  </tr>
+</tbody>
+</table>
+
+
+
+
+
+</center>
 
 </body>
 </html>

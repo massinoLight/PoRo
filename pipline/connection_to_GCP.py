@@ -68,7 +68,7 @@ def modif_into_big_query(projet,piece,jalon,status,remarque):
     table_id = "projet-sanae.PoRo.poroallprojetcts"
 
     query = "UPDATE  "+ table_id +  \
-            "   SET "+ jalon +" = "+str(status) +", date_mise_a_jour = CURRENT_DATE() , Description ="+remarque+\
+            "   SET "+ str(jalon) +" = "+str(status) +", date_mise_a_jour = CURRENT_DATE() , Description ="+"'"+str(remarque)+"'"+""+\
             " WHERE projet=@projet AND piece=@piece "
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
@@ -80,6 +80,32 @@ def modif_into_big_query(projet,piece,jalon,status,remarque):
     query_job.result()
 
     print("row modified")
+
+
+#modification d'une ligne de PoRo
+def get_into_big_query(projet):
+
+    client = bigquery.Client()
+    table_id = "projet-sanae.PoRo.poroallprojetcts"
+
+    query = "SELECT * FROM  "+ table_id +  \
+            " WHERE projet=@projet  "
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            bigquery.ScalarQueryParameter("projet", "STRING", projet),
+        ]
+    )
+    query_job = client.query(query, job_config=job_config)
+
+    dataframe = (
+        query_job
+            .result()
+            .to_dataframe(
+            create_bqstorage_client=True,
+        )
+    )
+
+    return dataframe
 
 
 #Creation de la table sur GCP a executer une seul fois lors du lancement du projet

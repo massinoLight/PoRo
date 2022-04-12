@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>PoRo indicator </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../static/css/style.css">
+      <link rel="stylesheet" href="../static/css/table.css">
+  </head>
+  <body>
+
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="p-4 pt-5">
+		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(../static/images/renault.jpg);"></a>
+	        <ul class="list-unstyled components mb-5">
+
+
+	          <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Afficher les projets</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+
+                   <li>
+                    <a href="{{ url_for('visualisation',projet='P1310') }}">P1310</a>
+                </li>
+                  <li>
+                    <a href="{{ url_for('visualisation',projet='P1316') }}">ECHO/P1316</a>
+                </li>
+
+                  <li>
+                    <a href="{{ url_for('visualisation',projet='HCB') }}">HCB</a>
+                </li>
+               <li>
+                    <a href="{{ url_for('visualisation',projet='DHN') }}">DHN</a>
+                </li>
+
+               <li>
+                    <a href="{{ url_for('visualisation',projet='R1310') }}">R1310</a>
+                </li>
+
+               <li>
+                    <a href="{{ url_for('visualisation',projet='DJB') }}">DJB</a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('visualisation',projet='HJB') }}">HJB</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('visualisation',projet='P1317') }}">4Ever/P1317</a>
+                </li>
+
+                   <li>
+                    <a href="{{ url_for('visualisation',projet='R1312') }}">R1312</a>
+                </li>
+
+              </ul>
+	          </li>
+
+	          <li>
+              <a href="{{ url_for('modification') }}">Modifier</a>
+	          </li>
+
+
+	        </ul>
+
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved our GitHub repo
+                    <i class="icon-heart" aria-hidden="true"></i>
+                    <a href="" target="_blank">gitHub.com</a>
+                </p>
+	        </div>
+
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('modification') }}">modifier</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+
+ <h1 style="text-align: center;color:#fcb43c">Reporting  PoRo  par projet </h1>
+
+
+	<div class="table">
+		<div class="table-header">
+
+			<div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Projet</a></div>
+
+		</div>
+		<div class="table-content">
+			<div class="table-row">
+
+				<div class="table-data">
+                    <a href="{{ url_for('visualisation',projet='P1310') }}">
+                   <img class="fit-picture" src="../static/images/AHS.png" alt="P1310" style="border:0">
+                   </a>
+                </div>
+
+
+                <div class="table-data">
+                    <a href="{{ url_for('visualisation',projet='HCB') }}">
+                   <img class="fit-picture"
+                        src="../static/images/BHS.png"
+                        alt="echo" >
+                   </a>
+                </div>
+
+
+                <div class="table-data">
+                     <a href="{{ url_for('visualisation',projet='DHN') }}">
+                   <img class="fit-picture" src="../static/images/B0.png" alt="DHN" style="border:0">
+                   </a>
+                </div>
+
+
+
+
+			</div>
+
+			<div class="table-row">
+
+				<div class="table-data">
+                    P1310
+                </div>
+
+                <div class="table-data">
+                 HCB
+                </div>
+
+
+                <div class="table-data">
+                 DHN
+                </div>
+			</div>
+			</div>
+		</div>
+
+
+    <div class="table">
+		<div class="table-header">
+
+			<div class="header__item"><a id="wins2" class="filter__link filter__link--number" href="#">Projet</a></div>
+
+		</div>
+		<div class="table-content">
+			<div class="table-row">
+
+                <div class="table-data">
+                     <a href="{{ url_for('visualisation',projet='P1316') }}">
+                   <img class="fit-picture" src="../static/images/HeavyVanbis.png" alt="P1316" style="border:0">
+                   </a>
+                </div>
+
+
+                 <div class="table-data">
+                         <a href="{{ url_for('visualisation',projet='R1310') }}">
+                   <img class="fit-picture" src="../static/images/HeavyVanbis.png" alt="R1310" style="border:0">
+                   </a>
+                </div>
+
+
+                <div class="table-data">
+                     <a href="{{ url_for('visualisation',projet='DJB') }}">
+                   <img class="fit-picture" src="../static/images/HeavyVanbis.png" alt="DJB" style="border:0">
+                   </a>
+                </div>
+
+			</div>
+
+			<div class="table-row">
+                <div class="table-data">
+                 P1316
+                </div>
+
+                <div class="table-data">
+                 R1310
+                </div>
+
+                 <div class="table-data">
+                 DJB
+                </div>
+			</div>
+
+
+
+			</div>
+
+		</div>
+
+
+    <div class="table">
+		<div class="table-header">
+
+			<div class="header__item"><a id="wins3" class="filter__link filter__link--number" href="#">Projet</a></div>
+
+		</div>
+		<div class="table-content">
+			<div class="table-row">
+				<div class="table-data">
+
+                    <a href="{{ url_for('visualisation',projet='HJB') }}">
+                   <img class="fit-picture" src="../static/images/AHS.png" alt="HJB" style="border:0">
+                   </a>
+                </div>
+
+                <div class="table-data">
+
+                    <a href="{{ url_for('visualisation',projet='P1317') }}">
+                   <img class="fit-picture"
+                        src="../static/images/BHS.png"
+                        alt="4EVER" >
+                   </a>
+
+                </div>
+
+
+                <div class="table-data">
+
+                     <a href="{{ url_for('visualisation',projet='R1312') }}">
+                   <img class="fit-picture" src="../static/images/B0.png" alt="R1312" style="border:0">
+                   </a>
+
+
+                </div>
+			</div>
+
+			<div class="table-row">
+
+				<div class="table-data">
+                    HJB
+                </div>
+
+                <div class="table-data">
+                 P1317
+                </div>
+
+
+                <div class="table-data">
+                 R1312
+                </div>
+
+
+
+			</div>
+			</div>
+		</div>
+</div>
+
+
+
+
+
+
+      </div>
+		</div>
+
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/popper.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/main.js"></script>
+  </body>
+</html>
