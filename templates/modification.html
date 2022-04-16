@@ -40,6 +40,12 @@
 
 
 
+<script>
+	function setSelectValue (id, val) {
+    document.getElementById(id).value = val;
+}
+</script>
+
 
 
 									<form action="/modification" method="POST">
@@ -63,34 +69,37 @@
             										</select>
 												</div>
 											</div>
+											<script>setSelectValue("projet", "{{ projet }}");</script>
 											<div class="col-md-12">
 												<div class="form-group">
 													<select name="Piece" id="Piece">
+
                 											<option value="">Pièce </option>
-                											<option value="Planche de bord">Planche de bord</option>
-															<option value="Console">Console </option>
-															<option value="Panneau porte AV">Panneau porte AV </option>
-															<option value="Panneau porte AR">Panneau porte AR</option>
-															<option value="Projecteur">Projecteur </option>
-															<option value="Feu"> Feu</option>
-															<option value="DRL"> DRL</option>
-															<option value="Sièges">Sièges </option>
-															<option value="Bouclier AV"> Bouclier AV</option>
-															<option value="Bouclier AR">Bouclier AR </option>
-															<option value="Miroirs extérieurs">Miroirs extérieurs </option>
-															<option value="Barres de toit">Barres de toit </option>
-															<option value="Volants"> Volants</option>
-															<option value="Cluster">Cluster </option>
-															<option value="Ecran">Ecran </option>
-															<option value="barette (switches)">barette (switches) </option>
-                                        					<option value="Habillage de coffre">Habillage de coffre</option>
+                											<option value="Barres de toit">Barres de toit</option>
+														    <option value="Bouclier AR">Bouclier AR</option>
+															<option value="Bouclier AV">Bouclier AV</option>
+														    <option value="Cluster">Cluster </option>
+														    <option value="Console">Console </option>
+														    <option value="DRL">DRL </option>
+														    <option value="Ecran">Ecran </option>
+														    <option value="Feu"> Feu</option>
+														    <option value="Habillage de coffre">Habillage de coffre </option>
+														    <option value="Miroirs extérieurs"> Miroirs extérieurs </option>
+														    <option value="Panneau porte AR"> Panneau porte AR </option>
+														    <option value="Panneau porte AV"> Panneau porte AV </option>
+														    <option value="Planche de bord"> Planche de bord </option>
+														    <option value="Projecteur">Projecteur </option>
+														    <option value="Sièges">Sièges </option>
+														    <option value="Volants">Volants </option>
+														    <option value="barette (switches)">barette (switches) </option>
             									</select>
 												</div>
 											</div>
-
+												<script>setSelectValue("Piece", "{{ piece }}");</script>
 											<div class="col-md-12">
 												<div class="form-group">
 													 <select name="jalon" id="jalon" onchange="yesnoCheck(this);">
+
                 											<option value=""></option>
                 											<option value="Ready_to_start_PC">Ready to start @PC</option>
 															<option value="PoRo_bouilding_PC_CF">PoRo building PC->CF</option>
@@ -102,6 +111,7 @@
 
 												</div>
 											</div>
+											<script>setSelectValue("jalon", "{{ jalon }}");</script>
                                              <div class="col-md-6">
 												<div class="form-group">
 													<select name="etat" id="etat" >

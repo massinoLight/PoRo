@@ -15,3 +15,4 @@ dataframe=get_into_big_query('P1310')
 couleurs=[]
 dataframe = dataframe[['Ready_to_start_PC', 'PoRo_bouilding_PC_CF','Expert_nomination','PoRo_Signature_Cf','Poro_Achievement_CF_p','Suppluiers_Nomination']]
 print(dataframe.values)
+

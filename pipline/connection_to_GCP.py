@@ -89,7 +89,7 @@ def get_into_big_query(projet):
     table_id = "projet-sanae.PoRo.poroallprojetcts"
 
     query = "SELECT * FROM  "+ table_id +  \
-            " WHERE projet=@projet  "
+            " WHERE projet=@projet ORDER by piece "
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
             bigquery.ScalarQueryParameter("projet", "STRING", projet),
