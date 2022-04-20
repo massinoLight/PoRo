@@ -1,167 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html>
+  <head>
+    <title>Tippy</title>
+  </head>
+  <body>
+    <button id="myButton">My button</button>
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
-<center>
-    <h4>{{Projet}}</h4>
-</center>
-<center>
-
-
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-0pky"></th>
-    <th class="tg-0pky">  Ready <br>&nbsp;&nbsp;&nbsp;to start     </th>
-    <th class="tg-0pky">  PoRo<br>&nbsp;&nbsp;Building   </th>
-    <th class="tg-0lax"><span style="font-style:italic">Expert</span><br>Nomination</th>
-    <th class="tg-0pky">&nbsp;&nbsp;&nbsp;PoRo<br>Signature</th>
-    <th class="tg-0pky">&nbsp;&nbsp;&nbsp;PoRo<br>Achievement</th>
-    <th class="tg-0pky">Supplier <br>nomination</th>
-    <th class="tg-0pky">REMARQUES</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0lax"><span style="font-weight:bold">Planche de bord</span></td>
-    {% for i in range(0,6) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Console</span></td>
-    {% for i in range(6,6*2) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Panneau porte AV</span></td>
-   {% for i in range(6*2,6*3) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Panneau porte AR</span></td>
-    {% for i in range(6*3,6*4) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Projecteur</span></td>
-    {% for i in range(6*4,6*5) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">DRL</span></td>
-    {% for i in range(6*5,6*6) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Feu</span></td>
-    {% for i in range(6*6,6*7) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Sièges</span></td>
-    {% for i in range(6*7,6*8) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Bouclier AV</span></td>
-    {% for i in range(6*8,6*9) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Bouclier AR</span></td>
-    {% for i in range(6*9,6*10) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Miroirs extérieurs</span></td>
-    {% for i in range(6*10,6*11) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Barres de toit</span></td>
-    {% for i in range(6*11,6*12) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Volants</span></td>
-    {% for i in range(6*12,6*13) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:bold">Cluster</span></td>
-   {% for i in range(6*13,6*14) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0pky"></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax"><span style="font-weight:bold">Ecran</span></td>
-    {% for i in range(6*14,6*15) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax"><span style="font-weight:bold">Barettes</span></td>
-    {% for i in range(6*15,6*16) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax"><span style="font-weight:bold">Habillage de coffre</span></td>
-    {% for i in range(6*16,6*17) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
-      {% endfor %}
-    <td class="tg-0lax"></td>
-  </tr>
-</tbody>
-</table>
-
-
-
-
-
-</center>
-
-</body>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script>
+      // With the above scripts loaded, you can call `tippy()` with a CSS
+      // selector and a `content` prop:
+      tippy('#myButton', {
+        content: 'My tooltip!',
+      });
+    </script>
+  </body>
 </html>

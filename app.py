@@ -27,6 +27,7 @@ def modification():
             bien='done'
             print(req.get("projet"))
             dataframe = get_into_big_query(req.get("projet"))
+            descriptions = dataframe['Description'].tolist()
             dataframe = dataframe[
                 ['Ready_to_start_PC', 'PoRo_bouilding_PC_CF', 'Expert_nomination', 'PoRo_Signature_Cf',
                  'Poro_Achievement_CF_p', 'Suppluiers_Nomination']]
@@ -51,7 +52,7 @@ def modification():
                                     if dataframe.values[i][j] == 5:
                                         couleurs.append("#949794")  # grey not concerned
 
-            return render_template('visualisation.html', Projet=req.get("projet"), couleurs=couleurs)
+            return render_template('visualisation.html', Projet=req.get("projet"), couleurs=couleurs,descriptions=descriptions)
         else :
             bien='saisie manquante'
             return render_template('modification.html', bien=bien)
@@ -109,10 +110,11 @@ def modification(projet,piece):
 def visualisation(projet):
     print(projet)
     dataframe=get_into_big_query(projet)
+    descriptions=dataframe['Description'].tolist()
     dataframe = dataframe[['Ready_to_start_PC', 'PoRo_bouilding_PC_CF','Expert_nomination','PoRo_Signature_Cf','Poro_Achievement_CF_p','Suppluiers_Nomination']]
     print(dataframe.values)
     couleurs = []
-    jalons = ["Ready_to_start_PC","PoRo_bouilding_PC_CF","Expert_nomination","PoRo_Signature_Cf","Poro_Achievement_CF_p","Suppluiers_Nomination"]
+
     for i in range(0, len(dataframe)):
         for j in range(0, len(dataframe.values[i])):
             if dataframe.values[i][j] == 1:
@@ -130,5 +132,5 @@ def visualisation(projet):
                             if dataframe.values[i][j] == 5:
                                 couleurs.append("#949794")  # grey not concerned
 
-    return render_template('visualisation.html',projet=projet,couleurs=couleurs,piece='')
+    return render_template('visualisation.html',projet=projet,couleurs=couleurs,piece='',descriptions=descriptions)
 
