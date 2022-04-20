@@ -16,6 +16,9 @@ def modification():
     projet = request.args.get('projet')
     piece = request.args.get('piece')
     jalon = request.args.get('jalon')
+    jalon=int(jalon)
+    jalon=jalon % 6
+    jalons = ["Ready_to_start_PC", "PoRo_bouilding_PC_CF", "Expert_nomination", "PoRo_Signature_Cf","Poro_Achievement_CF_p", "Suppluiers_Nomination"]
     print("projet="+str(projet),"piece="+str(piece),"jalon= "+str(jalon))
     if request.method == 'POST':
         req = request.form
@@ -48,14 +51,14 @@ def modification():
                                     if dataframe.values[i][j] == 5:
                                         couleurs.append("#949794")  # grey not concerned
 
-            return render_template('visualisation.html', Projet=req.get("projet"), couleurs=couleurs,jalon=jalons)
+            return render_template('visualisation.html', Projet=req.get("projet"), couleurs=couleurs)
         else :
             bien='saisie manquante'
             return render_template('modification.html', bien=bien)
 
 
 
-    return render_template('modification.html',projet=projet,piece=piece,jalon=jalon)
+    return render_template('modification.html',projet=projet,piece=piece,jalon=jalons[jalon])
 
 
 """
@@ -127,5 +130,5 @@ def visualisation(projet):
                             if dataframe.values[i][j] == 5:
                                 couleurs.append("#949794")  # grey not concerned
 
-    return render_template('visualisation.html',projet=projet,couleurs=couleurs,piece='',jalons=jalons)
+    return render_template('visualisation.html',projet=projet,couleurs=couleurs,piece='')
 
