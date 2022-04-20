@@ -15,7 +15,8 @@ def index():
 def modification():
     projet = request.args.get('projet')
     piece = request.args.get('piece')
-    print("projet="+str(projet),"piece="+str(piece))
+    jalon = request.args.get('jalon')
+    print("projet="+str(projet),"piece="+str(piece),"jalon= "+str(jalon))
     if request.method == 'POST':
         req = request.form
         if req.get("projet")!="" and req.get("Piece")!='':
@@ -28,6 +29,8 @@ def modification():
                  'Poro_Achievement_CF_p', 'Suppluiers_Nomination']]
             print(dataframe.values)
             couleurs = []
+            jalons = ["Ready_to_start_PC", "PoRo_bouilding_PC_CF", "Expert_nomination", "PoRo_Signature_Cf",
+                      "Poro_Achievement_CF_p", "Suppluiers_Nomination"]
             for i in range(0, len(dataframe)):
                 for j in range(0, len(dataframe.values[i])):
                     if dataframe.values[i][j] == 1:
@@ -45,14 +48,14 @@ def modification():
                                     if dataframe.values[i][j] == 5:
                                         couleurs.append("#949794")  # grey not concerned
 
-            return render_template('visualisation.html', Projet=req.get("projet"), couleurs=couleurs)
+            return render_template('visualisation.html', Projet=req.get("projet"), couleurs=couleurs,jalon=jalons)
         else :
             bien='saisie manquante'
             return render_template('modification.html', bien=bien)
 
 
 
-    return render_template('modification.html',projet=projet,piece=piece)
+    return render_template('modification.html',projet=projet,piece=piece,jalon=jalon)
 
 
 """
@@ -106,6 +109,7 @@ def visualisation(projet):
     dataframe = dataframe[['Ready_to_start_PC', 'PoRo_bouilding_PC_CF','Expert_nomination','PoRo_Signature_Cf','Poro_Achievement_CF_p','Suppluiers_Nomination']]
     print(dataframe.values)
     couleurs = []
+    jalons = ["Ready_to_start_PC","PoRo_bouilding_PC_CF","Expert_nomination","PoRo_Signature_Cf","Poro_Achievement_CF_p","Suppluiers_Nomination"]
     for i in range(0, len(dataframe)):
         for j in range(0, len(dataframe.values[i])):
             if dataframe.values[i][j] == 1:
@@ -123,5 +127,5 @@ def visualisation(projet):
                             if dataframe.values[i][j] == 5:
                                 couleurs.append("#949794")  # grey not concerned
 
-    return render_template('visualisation.html',projet=projet,couleurs=couleurs,piece='',jalon=1)
+    return render_template('visualisation.html',projet=projet,couleurs=couleurs,piece='',jalons=jalons)
 
