@@ -16,8 +16,9 @@ def modification():
     projet = request.args.get('projet')
     piece = request.args.get('piece')
     jalon = request.args.get('jalon')
-    jalon=int(jalon)
-    jalon=jalon % 6
+    if jalon is not None:
+        jalon=int(jalon)
+        jalon=jalon % 6
     jalons = ["Ready_to_start_PC", "PoRo_bouilding_PC_CF", "Expert_nomination", "PoRo_Signature_Cf","Poro_Achievement_CF_p", "Suppluiers_Nomination"]
     print("projet="+str(projet),"piece="+str(piece),"jalon= "+str(jalon))
     if request.method == 'POST':
@@ -59,7 +60,7 @@ def modification():
 
 
 
-    return render_template('modification.html',projet=projet,piece=piece,jalon=jalons[jalon])
+    return render_template('modification.html',projet=request.args.get('projet'),piece=piece,jalon=jalons[jalon])
 
 
 """
