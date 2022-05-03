@@ -32,9 +32,8 @@ def modification():
             print(req.get("etat"))
             dataframe = get_into_big_query(req.get("projet"))
             descriptions = dataframe['Description'].tolist()
-            dataframe = dataframe[
-                ['Ready_to_start_PC', 'PoRo_building_PC_CF', 'Expert_nomination', 'PoRo_Signature_CF',
-                 'Poro_Achievement_CF_p', 'Suppluiers_Nomination']]
+            weeks = dataframe[['Ready_to_start_PC_W', 'PoRo_building_PC_CF_W', 'Expert_nomination_W', 'PoRo_Signature_CF_W','Poro_Achievement_CF_p_W', 'Suppluiers_Nomination_W']].values.tolist()
+            dataframe = dataframe[['Ready_to_start_PC', 'PoRo_building_PC_CF', 'Expert_nomination', 'PoRo_Signature_CF','Poro_Achievement_CF_p', 'Suppluiers_Nomination']]
             print(dataframe.values)
             couleurs = []
 
@@ -55,7 +54,7 @@ def modification():
                                     if dataframe.values[i][j] == 5:
                                         couleurs.append("#949794")  # grey not concerned
 
-            return render_template('visualisation.html', projet=req.get("projet"), couleurs=couleurs,descriptions=descriptions)
+            return render_template('visualisation.html', projet=req.get("projet"), couleurs=couleurs,descriptions=descriptions,weeks=weeks)
         else :
             bien='saisie manquante'
             return render_template('modification.html', bien=bien,projet=req.get("projet"),piece=req.get("Piece"),jalon=req.get("jalon"))
@@ -114,12 +113,17 @@ def visualisation(projet):
     print(projet)
     dataframe=get_into_big_query(projet)
     descriptions=dataframe['Description'].tolist()
+    df = dataframe[['Ready_to_start_PC_W', 'PoRo_building_PC_CF_W', 'Expert_nomination_W', 'PoRo_Signature_CF_W', 'Poro_Achievement_CF_p_W','Suppluiers_Nomination_W']]
     dataframe = dataframe[['Ready_to_start_PC', 'PoRo_building_PC_CF','Expert_nomination','PoRo_Signature_CF','Poro_Achievement_CF_p','Suppluiers_Nomination']]
     print(dataframe.values)
+
+
     couleurs = []
+    weeks=[]
 
     for i in range(0, len(dataframe)):
         for j in range(0, len(dataframe.values[i])):
+            weeks.append(df.values[i][j])
             if dataframe.values[i][j] == 1:
                 couleurs.append("#e32014")  # red data missing
             else:
@@ -134,6 +138,6 @@ def visualisation(projet):
                         else:
                             if dataframe.values[i][j] == 5:
                                 couleurs.append("#949794")  # grey not concerned
-
-    return render_template('visualisation.html',projet=projet,couleurs=couleurs,piece='',descriptions=descriptions)
+    print(weeks)
+    return render_template('visualisation.html',projet=projet,couleurs=couleurs,piece='',descriptions=descriptions,weeks=weeks)
 

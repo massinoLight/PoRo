@@ -38,119 +38,119 @@
   <tr >
     <td class="tg-0lax"><span style="font-weight:bold">Barres de toit   |       Roof bar</span></td>
     {% for i in range(0,6) %}
-    <td i onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Barres de toit',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td  onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Barres de toit',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0lax">{{ descriptions[0] }}</td>
   </tr>
   <tr id="td">
     <td class="tg-0pky"><span style="font-weight:bold">Bouclier AR   |       RR bumper </span></td>
     {% for i in range(6,6*2) %}
-    <td class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Bouclier AR',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[1] }}</td>
   </tr>
   <tr>
     <td  class="tg-0pky"><span style="font-weight:bold">Bouclier AV   |       FR bumper </span></td>
    {% for i in range(6*2,6*3) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Bouclier AV' ,jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Bouclier AV' ,jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td  class="tg-0pky">{{ descriptions[2] }}</td>
   </tr>
   <tr>
     <td   class="tg-0pky"><span style="font-weight:bold">Cluster   |       Cluster</span></td>
     {% for i in range(6*3,6*4) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Cluster' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Cluster' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[3] }}</td>
   </tr>
   <tr>
     <td  class="tg-0pky"><span style="font-weight:bold">Console   |       Console</span></td>
     {% for i in range(6*4,6*5) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Console' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Console' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[4] }}</td>
   </tr>
   <tr>
     <td  class="tg-0pky"><span style="font-weight:bold">DRL   |       DRL</span></td>
     {% for i in range(6*5,6*6) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='DRL' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='DRL' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[5] }}</td>
   </tr>
   <tr>
     <td  class="tg-0pky"><span style="font-weight:bold">Ecran   |       Central panel</span></td>
     {% for i in range(6*6,6*7) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Ecran',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Ecran',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[6] }}</td>
   </tr>
   <tr>
     <td  class="tg-0pky"><span style="font-weight:bold">Feu   |       Rearlamps</span></td>
     {% for i in range(6*7,6*8) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Feu' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Feu' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[7] }}</td>
   </tr>
   <tr>
     <td  class="tg-0pky"><span style="font-weight:bold"> Habillage de coffre   |        Trunk trim </span></td>
     {% for i in range(6*8,6*9) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Habillage de coffre',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Habillage de coffre',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[8] }}</td>
   </tr>
   <tr>
     <td  class="tg-0pky"><span style="font-weight:bold"> Miroirs extérieurs   |        Outer vision</span></td>
     {% for i in range(6*9,6*10) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Miroirs extérieurs',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Miroirs extérieurs',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[9] }}</td>
   </tr>
   <tr>
     <td  class="tg-0pky"><span style="font-weight:bold"> Panneau porte AR   |       RR Door Panel</span></td>
     {% for i in range(6*10,6*11) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Panneau porte AR',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Panneau porte AR',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[10] }}</td>
   </tr>
   <tr>
     <td  class="tg-0pky"><span style="font-weight:bold">Panneau porte AV   |       FR Door Panel </span></td>
     {% for i in range(6*11,6*12) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Panneau porte AV' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Panneau porte AV' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[11] }}</td>
   </tr>
   <tr>
     <td  class="tg-0pky"><span style="font-weight:bold"> Planche de bord   |       Instrument panel</span></td>
     {% for i in range(6*12,6*13) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Planche de bord' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Planche de bord' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[12] }}</td>
   </tr>
   <tr>
     <td  class="tg-0pky"><span style="font-weight:bold">Projecteur   |        Frontlamps</span></td>
    {% for i in range(6*13,6*14) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Projecteur' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Projecteur' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0pky">{{ descriptions[13] }}</td>
   </tr>
   <tr>
     <td  class="tg-0lax"><span style="font-weight:bold">Sièges   |       Seats</span></td>
     {% for i in range(6*14,6*15) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Sièges' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Sièges' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0lax">{{ descriptions[14] }}</td>
   </tr>
   <tr>
     <td  class="tg-0lax"><span style="font-weight:bold">Volants   |        Steering Wheel</span></td>
     {% for i in range(6*15,6*16) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Volants' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='Volants' ,jalon=i) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0lax">{{ descriptions[15] }}</td>
   </tr>
   <tr>
     <td class="tg-0lax"><span style="font-weight:bold">Barette (switches)   |        swiches </span></td>
     {% for i in range(6*16,6*17) %}
-    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='barette (switches)',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}"></td>
+    <td onclick="window.location.href='{{ url_for( 'modification' ,projet=projet, piece='barette (switches)',jalon=i ) }}';" class="tg-0lax" bgcolor="{{ couleurs[i] }}">{{ weeks[i] }}</td>
       {% endfor %}
     <td class="tg-0lax">{{ descriptions[16] }}</td>
   </tr>
