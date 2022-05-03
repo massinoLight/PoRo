@@ -67,9 +67,14 @@ def modif_into_big_query(projet,piece,jalon,status,remarque):
     client = bigquery.Client()
     table_id = "projet-sanae.PoRo.poroallprojetcts"
 
-    query = "UPDATE  "+ table_id +  \
-            "   SET "+ str(jalon) +" = "+str(status) +", date_mise_a_jour = CURRENT_DATE() , Description ="+"'"+str(remarque)+"'"+""+\
-            " WHERE projet=@projet AND piece=@piece "
+
+
+    query = f"""
+                                                  UPDATE '{table_id}'
+                                                   SET {jalon}='{status}' ,date_mise_a_jour = CURRENT_DATE() , Description ='{remarque}'
+                                                  WHERE  projet=@projet AND piece=@piece
+                                                  """
+    print(query)
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
             bigquery.ScalarQueryParameter("projet", "STRING", projet),

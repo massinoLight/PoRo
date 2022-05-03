@@ -124,23 +124,12 @@
 													</select>
 												</div>
 											</div>
-											<script>
-												function yesnoCheck(that) {
-                                                     if (that.value == "cf") {
-                                                        //alert("check");
-                                                         document.getElementById("ifYes").style.display = "block";
-                                                     } else {
-                                                         document.getElementById("ifYes").style.display = "none";
-                                                           }
-                                                            }
 
-											</script>
 
 
 											<div class="col-md-12">
-												<div class="form-group" id="ifYes" style="display: none;">
-													<input type="date" id="dateCF" name="dateCF" value="{{ dernier }}" min="{{ premier }}" max="{{ dernier }}">
-
+												<div class="form-group">
+													<textarea name="week" class="form-control" id="week" cols="2" rows="2" placeholder="week"></textarea>
 												</div>
 											</div>
 
