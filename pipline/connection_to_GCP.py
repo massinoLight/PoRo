@@ -70,11 +70,11 @@ def modif_into_big_query(projet,piece,jalon,status,remarque):
 
 
     query = f"""
-                                                  UPDATE '{table_id}'
-                                                   SET {jalon}='{status}' ,date_mise_a_jour = CURRENT_DATE() , Description ='{remarque}'
+                                                  UPDATE `{table_id}`
+                                                   SET {jalon}={status} ,date_mise_a_jour = CURRENT_DATE() , Description ='{remarque}'
                                                   WHERE  projet=@projet AND piece=@piece
                                                   """
-    print(query)
+
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
             bigquery.ScalarQueryParameter("projet", "STRING", projet),

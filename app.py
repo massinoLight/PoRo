@@ -16,17 +16,21 @@ def modification():
     projet = request.args.get('projet')
     piece = request.args.get('piece')
     jalon = request.args.get('jalon')
+    etat = request.args.get('etat')
     if jalon is not None:
         jalon=int(jalon)
         jalon=jalon % 6
     jalons = ["Ready_to_start_PC", "PoRo_bouilding_PC_CF", "Expert_nomination", "PoRo_Signature_Cf","Poro_Achievement_CF_p", "Suppluiers_Nomination"]
-    print("projet="+str(projet),"piece="+str(piece),"jalon= "+str(jalon))
+    print("projet="+str(projet),"piece="+str(piece),"jalon= "+str(jalon),"etat= "+str(etat))
     if request.method == 'POST':
         req = request.form
-        if req.get("projet")!="" and req.get("Piece")!='':
+
+        if req.get("projet")!="" and req.get("Piece")!='' and req.get("etat")!='':
             modif_into_big_query(projet=req.get("projet"), piece=req.get("Piece"), jalon=req.get("jalon"), status=req.get("etat"), remarque=req.get("remarque"))
             bien='done'
             print(req.get("projet"))
+            print(req.get("Piece"))
+            print(req.get("etat"))
             dataframe = get_into_big_query(req.get("projet"))
             descriptions = dataframe['Description'].tolist()
             dataframe = dataframe[
@@ -53,10 +57,10 @@ def modification():
                                     if dataframe.values[i][j] == 5:
                                         couleurs.append("#949794")  # grey not concerned
 
-            return render_template('visualisation.html', Projet=req.get("projet"), couleurs=couleurs,descriptions=descriptions)
+            return render_template('visualisation.html', projet=req.get("projet"), couleurs=couleurs,descriptions=descriptions)
         else :
             bien='saisie manquante'
-            return render_template('modification.html', bien=bien)
+            return render_template('modification.html', bien=bien,projet=req.get("projet"),piece=req.get("Piece"),jalon=req.get("jalon"))
 
 
 
