@@ -20,26 +20,24 @@ def modification():
     if jalon is not None:
         jalon=int(jalon)
         jalon=jalon % 6
-    jalons = ["Ready_to_start_PC", "PoRo_bouilding_PC_CF", "Expert_nomination", "PoRo_Signature_Cf","Poro_Achievement_CF_p", "Suppluiers_Nomination"]
+    jalons = ["Ready_to_start_PC", "PoRo_building_PC_CF", "Expert_nomination", "PoRo_Signature_CF","Poro_Achievement_CF_p", "Suppluiers_Nomination"]
     print("projet="+str(projet),"piece="+str(piece),"jalon= "+str(jalon),"etat= "+str(etat))
     if request.method == 'POST':
         req = request.form
 
         if req.get("projet")!="" and req.get("Piece")!='' and req.get("etat")!='':
             modif_into_big_query(projet=req.get("projet"), piece=req.get("Piece"), jalon=req.get("jalon"), status=req.get("etat"), remarque=req.get("remarque"))
-            bien='done'
             print(req.get("projet"))
             print(req.get("Piece"))
             print(req.get("etat"))
             dataframe = get_into_big_query(req.get("projet"))
             descriptions = dataframe['Description'].tolist()
             dataframe = dataframe[
-                ['Ready_to_start_PC', 'PoRo_bouilding_PC_CF', 'Expert_nomination', 'PoRo_Signature_Cf',
+                ['Ready_to_start_PC', 'PoRo_building_PC_CF', 'Expert_nomination', 'PoRo_Signature_CF',
                  'Poro_Achievement_CF_p', 'Suppluiers_Nomination']]
             print(dataframe.values)
             couleurs = []
-            jalons = ["Ready_to_start_PC", "PoRo_bouilding_PC_CF", "Expert_nomination", "PoRo_Signature_Cf",
-                      "Poro_Achievement_CF_p", "Suppluiers_Nomination"]
+
             for i in range(0, len(dataframe)):
                 for j in range(0, len(dataframe.values[i])):
                     if dataframe.values[i][j] == 1:
@@ -116,7 +114,7 @@ def visualisation(projet):
     print(projet)
     dataframe=get_into_big_query(projet)
     descriptions=dataframe['Description'].tolist()
-    dataframe = dataframe[['Ready_to_start_PC', 'PoRo_bouilding_PC_CF','Expert_nomination','PoRo_Signature_Cf','Poro_Achievement_CF_p','Suppluiers_Nomination']]
+    dataframe = dataframe[['Ready_to_start_PC', 'PoRo_building_PC_CF','Expert_nomination','PoRo_Signature_CF','Poro_Achievement_CF_p','Suppluiers_Nomination']]
     print(dataframe.values)
     couleurs = []
 
