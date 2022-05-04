@@ -78,19 +78,28 @@ def insert_into_big_query(PoRo):
 
 
 #modification d'une ligne de PoRo
-def modif_into_big_query(projet,piece,jalon,status,remarque):
+def modif_into_big_query(projet,piece,jalon,status,week,remarque):
 
     client = bigquery.Client()
     table_id = "projet-sanae.PoRo.poroallprojetcts"
 
+    j=jalon+"_W"
 
+    if remarque!='':
 
-    query = f"""
-                                                  UPDATE `{table_id}`
-                                                   SET {jalon}={status} ,date_mise_a_jour = CURRENT_DATE() , Description ='{remarque}'
-                                                  WHERE  projet=@projet AND piece=@piece
+        query = f"""
+                                                    UPDATE `{table_id}`
+                                                     SET {jalon}={status} ,date_mise_a_jour = CURRENT_DATE() , Description ='{remarque}', {j}='{week}'      
+                                                       WHERE  projet=@projet AND piece=@piece
                                                   """
+    else:
+        query = f"""
+                                                            UPDATE `{table_id}`
+                                                             SET {jalon}={status} ,date_mise_a_jour = CURRENT_DATE() , {j}='{week}'      
+                                                               WHERE  projet=@projet AND piece=@piece
+                                                          """
 
+    print(query)
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
             bigquery.ScalarQueryParameter("projet", "STRING", projet),
@@ -101,6 +110,7 @@ def modif_into_big_query(projet,piece,jalon,status,remarque):
     query_job.result()
 
     print("row modified")
+
 
 
 #modification d'une ligne de PoRo

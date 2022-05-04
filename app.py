@@ -26,19 +26,18 @@ def modification():
         req = request.form
 
         if req.get("projet")!="" and req.get("Piece")!='' and req.get("etat")!='':
-            modif_into_big_query(projet=req.get("projet"), piece=req.get("Piece"), jalon=req.get("jalon"), status=req.get("etat"), remarque=req.get("remarque"))
-            print(req.get("projet"))
-            print(req.get("Piece"))
-            print(req.get("etat"))
+            modif_into_big_query(projet=req.get("projet"), piece=req.get("Piece"), jalon=req.get("jalon"), status=req.get("etat"),week=req.get("week"), remarque=req.get("remarque"))
             dataframe = get_into_big_query(req.get("projet"))
             descriptions = dataframe['Description'].tolist()
-            weeks = dataframe[['Ready_to_start_PC_W', 'PoRo_building_PC_CF_W', 'Expert_nomination_W', 'PoRo_Signature_CF_W','Poro_Achievement_CF_p_W', 'Suppluiers_Nomination_W']].values.tolist()
+            df = dataframe[['Ready_to_start_PC_W', 'PoRo_building_PC_CF_W', 'Expert_nomination_W', 'PoRo_Signature_CF_W','Poro_Achievement_CF_p_W', 'Suppluiers_Nomination_W']]
             dataframe = dataframe[['Ready_to_start_PC', 'PoRo_building_PC_CF', 'Expert_nomination', 'PoRo_Signature_CF','Poro_Achievement_CF_p', 'Suppluiers_Nomination']]
             print(dataframe.values)
             couleurs = []
+            weeks=[]
 
             for i in range(0, len(dataframe)):
                 for j in range(0, len(dataframe.values[i])):
+                    weeks.append(df.values[i][j])
                     if dataframe.values[i][j] == 1:
                         couleurs.append("#e32014")  # red data missing
                     else:
