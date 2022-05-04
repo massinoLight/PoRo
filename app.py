@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, flash
-
 from pipline.connection_to_GCP import modif_into_big_query, get_into_big_query
+
 
 app = Flask(__name__)
 

@@ -5,6 +5,7 @@ import configparser
 import os
 from pipline.PoRo import PoRo
 import datetime
+import re
 
 
 table_id = "projet-sanae.PoRo.poroallprojetcts"
@@ -84,12 +85,14 @@ def modif_into_big_query(projet,piece,jalon,status,week,remarque):
     table_id = "projet-sanae.PoRo.poroallprojetcts"
 
     j=jalon+"_W"
+    we = re.sub("['!@#${}]", '', week)
+    des = re.sub("['!@#${}]", '', remarque)
 
     if remarque!='':
 
         query = f"""
                                                     UPDATE `{table_id}`
-                                                     SET {jalon}={status} ,date_mise_a_jour = CURRENT_DATE() , Description ='{remarque}', {j}='{week}'      
+                                                     SET {jalon}={status} ,date_mise_a_jour = CURRENT_DATE() , Description ='{des}', {j}='{we}'      
                                                        WHERE  projet=@projet AND piece=@piece
                                                   """
     else:
